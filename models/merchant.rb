@@ -20,7 +20,7 @@ class Merchant
   def self.all()
     sql = "SELECT * FROM merchants"
     merchants = SqlRunner.run(sql)
-    result = merchants.map{|merchant| Tag.new(merchant)}
+    result = merchants.map{|merchant| Merchant.new(merchant)}
     return result
   end
 
@@ -29,6 +29,27 @@ class Merchant
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE merchants SET
+      store_name = $1
+    WHERE id = $2"
+    values = [@store_name, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete_by_id(id)
+    sql = "DELETE FROM merchants
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def delete_by_store_name(store_name)
+    sql = "DELETE FROM merchants
+    WHERE store_name = $1"
+    values = [@store_name]
+    SqlRunner.run( sql, values )
+  end
 
 
 

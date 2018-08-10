@@ -34,6 +34,30 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE transactions
+    SET
+    (
+      merchant_id,
+      tag_id,
+      transaction_time,
+      amount
+    ) =
+    (
+      $1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@amount, @merchant_id, @tag_id, @transaction_time, @id]
+    SqlRunner.run( sql, values )
+  end
+
+  def delete_by_id(id)
+    sql = "DELETE FROM transactions
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
 
 
 

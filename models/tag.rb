@@ -28,6 +28,26 @@ class Tag
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE tags SET type = $1
+    WHERE id = $2"
+    values = [@type, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete_by_id(id)
+    sql = "DELETE FROM tags
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def delete_by_type(type)
+    sql = "DELETE FROM tags
+    WHERE type = $1"
+    values = [@type]
+    SqlRunner.run( sql, values )
+  end
 
 
 
