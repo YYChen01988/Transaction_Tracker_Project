@@ -54,11 +54,17 @@ end
 
 
 
+
+
 #List of Merchants
 get '/merchants' do
   @merchants = Merchant.all()
   erb (:merchant_index)
 end
+
+
+
+
 #Delete Merchant
 get '/merchants/:id/delete' do
   @merchant = Merchant.find_by_id(params[:id])

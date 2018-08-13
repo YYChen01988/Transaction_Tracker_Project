@@ -8,8 +8,8 @@ class Transaction
 
   def initialize(options)
     @id = options["id"].to_i()if options["id"]
-    @merchant_id = options["merchant_id"]
-    @tag_id = options["tag_id"]
+    @merchant_id = options["merchant_id"].to_i
+    @tag_id = options["tag_id"].to_i
     @transaction_time = DateTime.parse(options["transaction_time"])
     @amount = options["amount"].to_i
 

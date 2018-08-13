@@ -6,20 +6,37 @@
   <br/>
 
   <label for="merchant"> Merchant: </label>
-  <select id = "merchants" name="merchant_id">
+  <select id="merchants" name="merchant_id">
     <% @merchants.each do |merchant| %>
-     <option value= <%="#{merchant.id}"%>><%=merchant.store_name%></option>
+    <% if merchant.id == @transaction.merchant_id %>
+      <option selected value="<%= merchant.id %>">
+        <%= merchant.store_name %>
+      </option>
+      <% else %>
+      <option value="<%= merchant.id %>">
+        <%= merchant.store_name %>
+      </option>
+      <% end %>
     <% end %>
   </select>
   <br/>
   <br/>
 
   <label for="tags">Transaction Tag: </label>
-  <select id = "tags" name="tag_id">
+  <select id="tags" name="tag_id">
     <% @tags.each do |tag| %>
-     <option value= <%="#{tag.id}"%>><%=tag.type%></option>
+    <% if tag.id == @transaction.tag_id %>
+      <option selected value="<%= tag.id %>">
+        <%= tag.type %>
+      </option>
+      <% else %>
+      <option value="<%= tag.id %>">
+        <%= tag.type %>
+      </option>
+      <% end %>
     <% end %>
   </select>
+
   <br/>
   <br/>
 
