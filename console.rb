@@ -60,6 +60,21 @@ transaction1 = Transaction.new({
   });
 transaction1.save()
 
+transaction2 = Transaction.new({
+  "merchant_id" => merchant3.id,
+  "tag_id" => tag1.id,
+  "transaction_time" => Time.now.asctime,
+  "amount" => 67
+  });
+transaction2.save()
+
+transaction3 = Transaction.new({
+  "merchant_id" => merchant4.id,
+  "tag_id" => tag2.id,
+  "transaction_time" => Time.now.asctime,
+  "amount" => 100
+  });
+transaction3.save()
 
 
 
