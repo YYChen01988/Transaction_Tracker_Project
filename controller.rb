@@ -37,12 +37,16 @@ end
 
 # Edit
 get '/transactions/:id/edit' do
+  @transactions = Transaction.all()
+  @tags = Tag.all()
+  @merchants = Merchant.all()
   @transaction = Transaction.find(params[:id])
   erb(:edit)
 end
 
 # Update
 post '/transactions/:id' do
+  params["transaction_time"] = Time.now.asctime
   @transaction = Transaction.new(params)
   @transaction.update()
   erb(:show)

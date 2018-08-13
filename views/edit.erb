@@ -2,6 +2,8 @@
 
   <label for="amount"> Amount: </label>
   <input id= "amount" type="number" name="amount" value="<%= @transaction.amount%>">
+  <br/>
+  <br/>
 
   <label for="merchant"> Merchant: </label>
   <select id = "merchants" name="merchant_id">
@@ -9,6 +11,8 @@
      <option value= <%="#{merchant.id}"%>><%=merchant.store_name%></option>
     <% end %>
   </select>
+  <br/>
+  <br/>
 
   <label for="tags">Transaction Tag: </label>
   <select id = "tags" name="tag_id">
@@ -16,7 +20,13 @@
      <option value= <%="#{tag.id}"%>><%=tag.type%></option>
     <% end %>
   </select>
+  <br/>
+  <br/>
 
+  <label for="time"> Transaction Time: </label>
+  <input id="time" type="hidden" name="transaction_id" value= <%= @transaction.transaction_time() %> readonly>
+<br/>
+<br/>
 
   <input type="submit" value="Confirm changes">
 
