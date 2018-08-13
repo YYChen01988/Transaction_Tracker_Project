@@ -45,6 +45,12 @@ merchant3 = Merchant.new({
 })
 merchant3.save()
 
+merchant4 = Merchant.new({
+"store_name" => "Scotrail"
+})
+merchant4.save()
+
+
 
 transaction1 = Transaction.new({
   "merchant_id" => merchant1.id,

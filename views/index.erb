@@ -1,0 +1,24 @@
+<h1>All Money Transactions</h1>
+<h4><a href="/transactions/new"> Add New transaction</a></h4>
+<hr/>
+
+<% @transactions.each do |transaction| %>
+<p>Amount: <%= transaction.amount() %> </p>
+<p>Merchant: <%= Merchant.find_by_id(transaction.merchant_id).store_name %></p>
+<p>Transaction Tag: <%= Tag.find_by_id(transaction.tag_id).type %></p>
+<p>Transaction Time: <%= transaction.transaction_time() %> </p>
+<p><a href="/transactions/<%= transaction.id %>/delete"> Delete Transaction</a></p>
+
+<hr/>
+<% end %>
+
+<h1>Analytics</h1>
+
+by Tag
+<% @tags.each do |tag| %>
+<h3><%= tag.type %></h3>
+<p>Amount spent: <%= Transaction.group_by_tag(tag.id) %></p>
+<p>Transactions made: <%= Transaction.number_by_tag(tag.id) %> </p>
+<% end %>
+
+<hr/>

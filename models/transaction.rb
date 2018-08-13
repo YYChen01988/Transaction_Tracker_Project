@@ -51,15 +51,37 @@ class Transaction
     SqlRunner.run( sql, values )
   end
 
-  def delete_by_id(id)
+  def delete()
     sql = "DELETE FROM transactions
     WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = $1"
+    values = [id]
+    transaction = SqlRunner.run( sql, values )
+    result = Transaction.new( transaction.first )
+    return result
+  end
+
+def self.group_by_tag(tag)
+    sql = "SELECT sum(amount) FROM transactions WHERE tag_id = $1"
+    values = [tag]
+    total_amount = SqlRunner.run( sql, values )
+    result =  total_amount.first
+    return result["sum"]
+end
 
 
+def self.number_by_tag(tag)
+    sql = "SELECT count(*) FROM transactions WHERE tag_id = $1"
+    values = [tag]
+    total_amount = SqlRunner.run( sql, values )
+    result = total_amount.first
+    return result["count"]
+end
 
 
 
