@@ -83,6 +83,23 @@ def self.number_by_tag(tag)
     return result["count"]
 end
 
+def self.group_by_merchant(merchant)
+    sql = "SELECT sum(amount) FROM transactions WHERE merchant_id = $1"
+    values = [merchant]
+    total_amount = SqlRunner.run( sql, values )
+    result =  total_amount.first
+    return result["sum"]
+end
+
+
+def self.number_by_merchant(merchant)
+    sql = "SELECT count(*) FROM transactions WHERE merchant_id = $1"
+    values = [merchant]
+    total_amount = SqlRunner.run( sql, values )
+    result = total_amount.first
+    return result["count"]
+end
+
 
 
 end

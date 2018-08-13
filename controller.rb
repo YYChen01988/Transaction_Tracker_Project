@@ -12,6 +12,7 @@ also_reload ( './models/*')
 get '/transactions' do
   @transactions = Transaction.all()
   @tags = Tag.all()
+  @merchants = Merchant.all()
   erb (:index)
 end
 
@@ -32,4 +33,17 @@ get '/transactions/:id/delete' do
   @transaction = Transaction.find(params[:id])
   @transaction.delete()
   erb(:delete)
+end
+
+# Edit
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find(params[:id])
+  erb(:edit)
+end
+
+# Update
+post '/transactions/:id' do
+  @transaction = Transaction.new(params)
+  @transaction.update()
+  erb(:show)
 end
