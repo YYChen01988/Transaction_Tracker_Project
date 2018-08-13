@@ -49,5 +49,5 @@ post '/transactions/:id' do
   params["transaction_time"] = Time.now.asctime
   @transaction = Transaction.new(params)
   @transaction.update()
-  erb(:show)
+  redirect '/transactions'
 end
