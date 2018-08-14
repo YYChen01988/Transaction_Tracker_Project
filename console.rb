@@ -2,6 +2,8 @@ require_relative("db/sqlrunner.rb")
 require_relative("models/tag.rb")
 require_relative("models/merchant.rb")
 require_relative("models/transaction.rb")
+require_relative("models/budget.rb")
+
 
 
 
@@ -10,7 +12,13 @@ require ("pry")
 Transaction.delete_all()
 Tag.delete_all()
 Merchant.delete_all()
+Budget.delete_all()
 
+budget = Budget.new({
+  "amount" => "500.35",
+  "add_time" => Time.now.asctime
+  })
+budget.save()
 
 tag1 = Tag.new({
 "type" => "Groceries"

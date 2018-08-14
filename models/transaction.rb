@@ -11,7 +11,7 @@ class Transaction
     @merchant_id = options["merchant_id"].to_i
     @tag_id = options["tag_id"].to_i
     @transaction_time = DateTime.parse(options["transaction_time"])
-    @amount = options["amount"].to_i
+    @amount = options["amount"].to_f
 
   end
 

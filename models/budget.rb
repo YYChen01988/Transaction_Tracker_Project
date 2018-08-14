@@ -8,8 +8,8 @@ class Budget
 
   def initialize(options)
     @id = options["id"].to_i()if options["id"]
-    @amount = options["amount"].to_i
-    @add__time = DateTime.parse(options["transaction_time"])
+    @amount = options["amount"].to_f
+    @add_time = DateTime.parse(options["add_time"])
 
   end
 
@@ -18,6 +18,11 @@ class Budget
     values = [@amount, @add_time]
     result = SqlRunner.run(sql, values).first
     @id = result["id"].to_i
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM budgets"
+    SqlRunner.run(sql)
   end
 
   def self.all()
@@ -40,8 +45,6 @@ class Budget
     values = [@amount, @add_time, @id]
     SqlRunner.run( sql, values )
   end
-
-
 
 
 
