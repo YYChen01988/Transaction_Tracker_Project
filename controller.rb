@@ -68,9 +68,16 @@ get '/merchants' do
   @merchants = Merchant.all()
   erb (:merchant_index)
 end
+
 #Delete Warning
+get '/merchants/:id/delete-warning' do
+  @merchant = Merchant.find_by_id(params[:id])
+  erb(:merchant_delete_warning)
+end
+
+#Delete alert
 get '/merchants/:id/delete' do
-  flash[:notice] = "Hooray, Flash is working!"
+  flash[:notice] = "Your related transactions are removed!"
   redirect '/merchants'
 end
 #Delete Merchant
@@ -113,8 +120,15 @@ get '/tags' do
   @tags = Tag.all()
   erb (:tag_index)
 end
+
+#Delete Warning
+get '/tags/:id/delete-warning' do
+  @tag = Tag.find_by_id(params[:id])
+  erb(:tag_delete_warning)
+end
+
 #Delete
-get '/tags/:id/delete' do
+post '/tags/:id/delete' do
   @tag = Tag.find_by_id(params[:id])
   @tag.delete_by_id([:id])
   redirect '/tags'

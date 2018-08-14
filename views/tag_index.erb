@@ -4,7 +4,7 @@
 <hr/>
 <% @tags.each do |tag| %>
 <h3><%= Tag.find_by_id(tag.id).type %></h3>
-<a href="/tags/<%= tag.id %>/delete"><button> Delete</button></a>
+<a href="/tags/<%= tag.id %>/delete-warning"><button> Delete</button></a>
 <a href="/tags/<%= tag.id %>/edit"><button> Edit Tag</button></a>
 <hr/>
 <% end %>

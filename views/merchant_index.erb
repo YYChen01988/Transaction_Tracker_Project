@@ -4,7 +4,7 @@
 <hr/>
 <% @merchants.each do |merchant| %>
 <h3><%= Merchant.find_by_id(merchant.id).store_name %><h3>
-<a href="/merchants/<%= merchant.id %>/delete"><button> Delete</button></a>
+<a href="/merchants/<%= merchant.id %>/delete-warning"><button> Delete</button></a>
 <a href="/merchants/<%= merchant.id %>/edit"><button> Edit Merchant</button></a>
 <hr/>
 <% end %>

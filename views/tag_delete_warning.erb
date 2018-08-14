@@ -1,0 +1,13 @@
+<h2>Warning</h2>
+<p>You will delete all the transactions related to the deleted item!</p>
+<p>Do you wish to compelete the delete?</p>
+
+<form action="/tags/<%= @tag.id%>/delete" method="post">
+<input type="submit" value="Yes, Delete">
+</form>
+<br>
+<form action="/tags" method="get">
+  <input type="submit" value="No, Keep">
+</form>
+
+<br>
