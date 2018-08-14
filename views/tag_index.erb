@@ -1,13 +1,10 @@
 <h1>All Tags</h1>
-<h4><a href="/tags/new"> Add New Tag Type</a></h4>
+<h4><a href="/tags/new"><button> Add New Tag Type</button></a></h4>
 
 <hr/>
 <% @tags.each do |tag| %>
-<ul><li><%= Tag.find_by_id(tag.id).type %>
-</br>
-<a href="/tags/<%= tag.id %>/delete"> Delete</a>
-<a href="/tags/<%= tag.id %>/edit"> Eidit Tag</a>
-
-</li>
-</ul>
+<h3><%= Tag.find_by_id(tag.id).type %></h3>
+<a href="/tags/<%= tag.id %>/delete"><button> Delete</button></a>
+<a href="/tags/<%= tag.id %>/edit"><button> Edit Tag</button></a>
+<hr/>
 <% end %>

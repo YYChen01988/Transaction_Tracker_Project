@@ -1,7 +1,8 @@
 <h1>All Money Transactions</h1>
-<h4><a href="/transactions/new"> Add New Transaction</a></h4>
-<h4><a href="/merchants"> Merchant List</a></h4>
-<h4><a href="/tags">Tag List</a></h4>
+<br>
+<a href="/transactions/new"><button> Add New Transaction </button></a>
+<a href="/merchants"><button> Merchant List</button></a>
+<a href="/tags"><button>Tag List</button></a>
 
 
 <hr/>
@@ -11,29 +12,8 @@
 <p>Merchant: <%= Merchant.find_by_id(transaction.merchant_id).store_name %></p>
 <p>Transaction Tag: <%= Tag.find_by_id(transaction.tag_id).type %></p>
 <p>Transaction Time: <%= transaction.transaction_time() %> </p>
-<p><a href="/transactions/<%= transaction.id %>/delete"> Delete Transaction</a></p>
-<p><a href="/transactions/<%= transaction.id %>/edit"> Eidit Transaction</a></p>
+<a href="/transactions/<%= transaction.id %>/delete"><button> Delete Transaction</button></a>
+<a href="/transactions/<%= transaction.id %>/edit"><button> Eidit Transaction</button></a>
 
 <hr/>
 <% end %>
-
-<h1>Analytics</h1>
-
-
-<h2 style="font-family:verdana;">Merchant</h2>
-<% @merchants.each do |merchant| %>
-<h3><%= merchant.store_name %></h3>
-<p>Amount spent: <%= Transaction.group_by_merchant(merchant.id) %></p>
-<p>Transactions made: <%= Transaction.number_by_merchant(merchant.id) %> </p>
-<% end %>
-
-<hr/>
-
-<h2 style="font-family:verdana;">Tag</h2>
-<% @tags.each do |tag| %>
-<h3><%= tag.type %></h3>
-<p>Amount spent: <%= Transaction.group_by_tag(tag.id) %></p>
-<p>Transactions made: <%= Transaction.number_by_tag(tag.id) %> </p>
-<% end %>
-
-<hr/>

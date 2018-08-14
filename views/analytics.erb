@@ -1,0 +1,20 @@
+<h1>Analytics</h1>
+
+
+<h2 style="font-family:verdana;">Merchant</h2>
+<% @merchants.each do |merchant| %>
+<h3><%= merchant.store_name %></h3>
+<p>Amount spent: <%= Transaction.group_by_merchant(merchant.id) %></p>
+<p>Transactions made: <%= Transaction.number_by_merchant(merchant.id) %> </p>
+<% end %>
+
+<hr/>
+
+<h2 style="font-family:verdana;">Tag</h2>
+<% @tags.each do |tag| %>
+<h3><%= tag.type %></h3>
+<p>Amount spent: <%= Transaction.group_by_tag(tag.id) %></p>
+<p>Transactions made: <%= Transaction.number_by_tag(tag.id) %> </p>
+<% end %>
+
+<hr/>

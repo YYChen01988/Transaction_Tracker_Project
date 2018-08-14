@@ -1,18 +1,25 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
+require('sinatra/flash')
 
 require_relative ( './models/transaction.rb')
 require_relative ( './models/merchant.rb')
 require_relative ( './models/tag.rb')
 
+enable :sessions
 also_reload ( './models/*')
+
+get '/analytics' do
+  @transactions = Transaction.all()
+  @tags = Tag.all()
+  @merchants = Merchant.all()
+  erb(:analytics)
+end
 
 #List of Transactions
 get '/transactions' do
   @transactions = Transaction.all()
-  @tags = Tag.all()
-  @merchants = Merchant.all()
   erb (:index)
 end
 #New
@@ -61,12 +68,13 @@ get '/merchants' do
   @merchants = Merchant.all()
   erb (:merchant_index)
 end
-
-
-
-
-#Delete Merchant
+#Delete Warning
 get '/merchants/:id/delete' do
+  flash[:notice] = "Hooray, Flash is working!"
+  redirect '/merchants'
+end
+#Delete Merchant
+post '/merchants/:id/delete' do
   @merchant = Merchant.find_by_id(params[:id])
   @merchant.delete_by_id([:id])
   redirect '/merchants'

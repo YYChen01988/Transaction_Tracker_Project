@@ -1,12 +1,10 @@
 <h1>All Merchants</h1>
-<h4><a href="/merchants/new"> Add New Merchant</a></h4>
+<h4><a href="/merchants/new"><button> Add New Merchant</button></a></h4>
 
 <hr/>
 <% @merchants.each do |merchant| %>
-<ul><li><%= Merchant.find_by_id(merchant.id).store_name %>
-</br>
-<a href="/merchants/<%= merchant.id %>/delete"> Delete</a>
-<a href="/merchants/<%= merchant.id %>/edit"> Eidit Merchant</a>
-</li>
-</ul>
+<h3><%= Merchant.find_by_id(merchant.id).store_name %><h3>
+<a href="/merchants/<%= merchant.id %>/delete"><button> Delete</button></a>
+<a href="/merchants/<%= merchant.id %>/edit"><button> Edit Merchant</button></a>
+<hr/>
 <% end %>
