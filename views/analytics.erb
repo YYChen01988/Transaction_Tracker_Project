@@ -1,5 +1,11 @@
 <h1>Analytics</h1>
 
+<h2 style="font-family:verdana;">Total Spending</h2>
+<% @transactions.each do |transaction| %>
+<% end %>
+<p>Amount spent: <%= Transaction.total_amount() %></p>
+
+<hr/>
 
 <h2 style="font-family:verdana;">Merchant</h2>
 <% @merchants.each do |merchant| %>

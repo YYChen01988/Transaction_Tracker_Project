@@ -100,6 +100,11 @@ def self.number_by_merchant(merchant)
     return result["count"]
 end
 
-
+def self.total_amount()
+  sql = "SELECT sum(amount) FROM transactions"
+  total_amount = SqlRunner.run(sql)
+  result = total_amount[0]["sum"]
+  return result.to_i
+end
 
 end
