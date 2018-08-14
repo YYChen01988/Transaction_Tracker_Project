@@ -1,7 +1,12 @@
 <h1>Budget</h1>
 <hr/>
 <% @budgets.each do |budget| %>
-<h3>£: <%= Budget.find_by_id(budget.id).amount%></h3>
+<% if (budget.amount()- Transaction.total_amount()) <= 5%>
+<h1>Your remaing budget is under £5!</h1>
+<%end%>
+<h3>Amount: £ <%= Budget.find_by_id(budget.id).amount%></h3>
+<h3>Transaction Amount: £ <%= Transaction.total_amount()%></h3>
+<h3>Remaing Budget: £ <%= Budget.find_by_id(budget.id).amount - Transaction.total_amount() %></h3>
 <a href="/budgets/<%= budget.id %>/edit"><button> Edit Budget</button></a>
 <p>Add Time: <%= budget.add_time().strftime("%d %B, %Y") %> </p>
 
