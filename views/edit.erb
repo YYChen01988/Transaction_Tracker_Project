@@ -43,7 +43,8 @@
 
   <div>
     <label for="transaction_time">Enter your transaction time:</label>
-    <input type="date" id="transaction_time" name="transaction_time">
+    <input type="date" id="transaction_time"
+    value="<%= @transaction.transaction_time.strftime("%Y-%m-%d") %>" name="transaction_time">
   </div>
 
   <br>

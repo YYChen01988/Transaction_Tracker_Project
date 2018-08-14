@@ -4,10 +4,10 @@
   <input id= "amount" type="number" name="amount" value="<%= @budget.amount%>">
   <br>
   <br>
- 
+
   <div>
     <label for="add_time">Enter your current time:</label>
-    <input type="date" id="add_time" name="add_time">
+    <input type="date" id="add_time" value="<%= @budget.add_time.strftime("%Y-%m-%d") %>" name="add_time">
   </div>
 
   <br>
