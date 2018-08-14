@@ -1,4 +1,4 @@
-<h1>All Money Transactions</h1>
+<h1 style="text-shadow: 2px 2px #9a9ca0;">All Money Transactions</h1>
 <br>
 <a href="/transactions/new"><button> Add New Transaction </button></a>
 <a href="/merchants"><button> Merchant List</button></a>
@@ -11,7 +11,7 @@
 <p>Amount: <%= transaction.amount() %> </p>
 <p>Merchant: <%= Merchant.find_by_id(transaction.merchant_id).store_name %></p>
 <p>Transaction Tag: <%= Tag.find_by_id(transaction.tag_id).type %></p>
-<p>Transaction Time: <%= transaction.transaction_time() %> </p>
+<p>Transaction Time: <%= transaction.transaction_time().strftime("%d %B, %Y") %> </p>
 <a href="/transactions/<%= transaction.id %>/delete"><button> Delete Transaction</button></a>
 <a href="/transactions/<%= transaction.id %>/edit"><button> Eidit Transaction</button></a>
 

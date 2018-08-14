@@ -40,8 +40,12 @@
   <br>
   <br>
 
-  <label for="time"> Transaction Time: </label>
-  <input id="time"  name="transaction_time" value= <%= @transaction.transaction_time() %> readonly>
+
+  <div>
+    <label for="transaction_time">Enter your transaction time:</label>
+    <input type="date" id="transaction_time" name="transaction_time">
+  </div>
+
   <br>
   <br>
   <input type="submit" value="Confirm Changes">

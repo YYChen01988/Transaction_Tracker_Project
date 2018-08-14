@@ -6,6 +6,7 @@ require('sinatra/flash')
 require_relative ( './models/transaction.rb')
 require_relative ( './models/merchant.rb')
 require_relative ( './models/tag.rb')
+require_relative ( './models/budget.rb')
 
 enable :sessions
 also_reload ( './models/*')
@@ -28,6 +29,7 @@ get '/transactions/new' do
   @tags = Tag.all()
   erb(:new)
 end
+
 #Create
 post '/transactions' do
   params["transaction_time"] = Time.now.asctime
@@ -53,7 +55,7 @@ end
 
 # Update
 post '/transactions/:id' do
-  params["transaction_time"] = Time.now.asctime
+  # params["transaction_time"] = Time.now.asctime
   @transaction = Transaction.new(params)
   @transaction.update()
   redirect '/transactions'
@@ -156,4 +158,25 @@ post '/tags/:id' do
   @tag = Tag.new(params)
   @tag.update()
   redirect '/tags'
+end
+
+
+#Budget
+get '/budgets' do
+  @budgets = Budget.all()
+  erb (:budget_index)
+end
+
+# Edit
+get '/budgets/:id/edit' do
+  @budgets = Budget.all()
+  @budget = Budget.find_by_id(params[:id])
+  erb(:budget_edit)
+end
+
+# Update
+post '/budgets/:id' do
+  @budget = Budget.new(params)
+  @budget.update()
+  redirect '/budgets'
 end

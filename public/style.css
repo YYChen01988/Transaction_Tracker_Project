@@ -5,10 +5,11 @@ body{
 
 #nav a{
   text-decoration: none;
-  color: #2669e2;
+  color: #2152a0;
   font-weight: bold;
   padding: 10px;
   line-height: 1.6;
+  text-shadow: 0.5px 0.5px #00102d;
 }
 h3{
   padding-left: 20px;

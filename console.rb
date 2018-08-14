@@ -15,7 +15,7 @@ Merchant.delete_all()
 Budget.delete_all()
 
 budget = Budget.new({
-  "amount" => "500.35",
+  "amount" => "0.00",
   "add_time" => Time.now.asctime
   })
 budget.save()

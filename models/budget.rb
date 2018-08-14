@@ -7,7 +7,7 @@ class Budget
   attr_accessor :amount, :add_time
 
   def initialize(options)
-    @id = options["id"].to_i()if options["id"]
+    @id = options["id"].to_i() if options["id"]
     @amount = options["amount"].to_f
     @add_time = DateTime.parse(options["add_time"])
 
@@ -28,7 +28,7 @@ class Budget
   def self.all()
     sql = "SELECT * FROM budgets"
     budgets = SqlRunner.run(sql)
-    result = budgets.map{|budget| Budget.new(budgets)}
+    result = budgets.map{|budget| Budget.new(budget)}
     return result
   end
 
@@ -46,6 +46,13 @@ class Budget
     SqlRunner.run( sql, values )
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM budgets WHERE id = $1"
+    values = [id]
+    budget = SqlRunner.run( sql, values )
+    result = Budget.new( budget.first )
+    return result
+  end
 
 
 end

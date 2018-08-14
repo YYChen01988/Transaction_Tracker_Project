@@ -1,0 +1,8 @@
+<h1>Budget</h1>
+<hr/>
+<% @budgets.each do |budget| %>
+<h3>£: <%= Budget.find_by_id(budget.id).amount%></h3>
+<a href="/budgets/<%= budget.id %>/edit"><button> Edit Budget</button></a>
+<p>Add Time: <%= budget.add_time().strftime("%d %B, %Y") %> </p>
+
+<% end %>
