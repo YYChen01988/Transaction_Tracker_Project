@@ -1,10 +1,9 @@
 <h1 style="text-shadow: 5px 3px #9a9ca0;">All Money Transactions</h1>
 <br>
-<a href="/transactions/new"><button> Add New Transaction </button></a>
-<a href="/merchants"><button> Merchant List</button></a>
-<a href="/tags"><button>Tag List</button></a>
-
-
+<a href="/transactions/new"><button id="tbutton"> Add New Transaction </button></a>
+<a href="/merchants"><button id="tbutton" > Merchant List</button></a>
+<a href="/tags"><button id="tbutton">Tag List</button></a>
+<br>
 <hr/>
 
 <% @transactions.each do |transaction| %>
