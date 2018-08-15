@@ -37,6 +37,22 @@ class Transaction
     return result
   end
 
+  def self.filter_by_tag(tag_id)
+    sql = "SELECT * FROM transactions WHERE tag_id = $1 ORDER BY transaction_time DESC"
+    values = [tag_id]
+    transactions = SqlRunner.run( sql, values )
+    result = transactions.map{|transaction| Transaction.new(transaction)}
+    return result
+  end
+
+  def self.filter_by_merchant(merchant_id)
+    sql = "SELECT * FROM transactions WHERE merchant_id = $1 ORDER BY transaction_time DESC"
+    values = [tag_id, merchant_id]
+    transactions = SqlRunner.run( sql, values )
+    result = transactions.map{|transaction| Transaction.new(transaction)}
+    return result
+  end
+
   def self.delete_all()
     sql = "DELETE FROM transactions"
     SqlRunner.run(sql)
