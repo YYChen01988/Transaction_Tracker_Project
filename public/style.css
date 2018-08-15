@@ -26,6 +26,10 @@ button{
   color: white;
   border-radius: 20px 20px 20px 20px;
 }
+button:hover{
+  background: dodgerBlue;
+}
+
 #tbutton{
   font-size: 12px;
 }
@@ -38,6 +42,15 @@ input{
   box-sizing: border-box;
   border-color: dodgerBlue;
   box-shadow: 5 5 8px 0 dodgerBlue;
+}
+
+input[type=submit]{
+  background-color: #012b70;
+  color:white;
+  border-radius: 8px 8px 8px 8px;
+}
+input[type=submit]:hover{
+  background: dodgerBlue;
 }
 
 #container {
