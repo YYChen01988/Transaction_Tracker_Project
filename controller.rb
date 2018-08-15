@@ -20,7 +20,16 @@ end
 
 #List of Transactions
 get '/transactions' do
+  @tags = Tag.all()
+  @merchants = Merchant.all()
   @transactions = Transaction.all()
+  erb (:index)
+end
+#filter of Transactions
+get '/transactions/filter' do
+  @tags = Tag.all()
+  @merchants = Merchant.all()
+  @transactions = Transaction.filter_by_tag_and_merchant(params["tag_id"],params["merchant_id"])
   erb (:index)
 end
 #New

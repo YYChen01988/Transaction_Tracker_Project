@@ -1,5 +1,26 @@
 <h1 style="text-shadow: 5px 3px #9a9ca0;">All Money Transactions</h1>
 <br>
+<form action="/transactions/filter" method="get">
+
+<label for="tags">Transaction Tag: </label>
+<select id = "tags" name="tag_id">
+  <% @tags.each do |tag| %>
+   <option value= <%="#{tag.id}"%>><%=tag.type%></option>
+  <% end %>
+</select>
+
+<label for="merchants">Merchant: </label>
+<select id = "merchants" name="merchant_id">
+  <% @merchants.each do |merchant| %>
+   <option value= <%="#{merchant.id}"%>><%=merchant.store_name%></option>
+  <% end %>
+</select>
+
+  <input type="submit" value="filter transactions">
+
+</form>
+<br>
+<hr/>
 <a href="/transactions/new"><button id="tbutton"> Add New Transaction </button></a>
 <a href="/merchants"><button id="tbutton" > Merchant List</button></a>
 <a href="/tags"><button id="tbutton">Tag List</button></a>
