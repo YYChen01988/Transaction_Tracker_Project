@@ -33,7 +33,7 @@
 <p>Transaction Tag: <%= Tag.find_by_id(transaction.tag_id).type %></p>
 <p>Transaction Time: <%= transaction.transaction_time().strftime("%d %B, %Y") %> </p>
 <a href="/transactions/<%= transaction.id %>/delete"><button> Delete Transaction</button></a>
-<a href="/transactions/<%= transaction.id %>/edit"><button> Eidit Transaction</button></a>
+<a href="/transactions/<%= transaction.id %>/edit"><button> Edit Transaction</button></a>
 
 <hr/>
 <% end %>
