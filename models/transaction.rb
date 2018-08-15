@@ -30,7 +30,7 @@ class Transaction
   end
 
   def self.filter_by_tag_and_merchant(tag_id,merchant_id)
-    sql = "SELECT * FROM transactions WHERE tag_id = $1 AND merchant_id = $2 ORDER BY transaction_time"
+    sql = "SELECT * FROM transactions WHERE tag_id = $1 AND merchant_id = $2 ORDER BY transaction_time DESC"
     values = [tag_id, merchant_id]
     transactions = SqlRunner.run( sql, values )
     result = transactions.map{|transaction| Transaction.new(transaction)}
