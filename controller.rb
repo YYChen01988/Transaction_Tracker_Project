@@ -189,3 +189,18 @@ post '/budgets/:id' do
   @budget.update()
   redirect '/budgets'
 end
+
+# Upload
+post '/upload' do
+  unless params[:file] &&
+    (tempfil = params[:file][:tempfile])&&
+    (name = params[file][:filename])
+  @error = "No file selected"
+  return haml(:upload)
+end
+STDERR.puts "Uploading file, original name #{name.inspect}"
+while blk = tempfile.read(65536)
+  STDERR.puts blk.inspect
+end
+"Upload complete"
+end

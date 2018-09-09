@@ -1,3 +1,13 @@
+
+READ ME!!!!
+How to start Ruby & Sinatra
+1. run psql -d moneytracker -f db/money_tracker.sql
+2. run psql -d moneytracker    (\q for quting program)
+3. run controller.rb (crl c to exit)
+4. ruby console.rb (quit to exit)
+5. open website by putting http://localhost:4567/transactions in web-brower(googlechrom).
+
+
 Spending Tracker
 Build an app that allows a user to track their spending.
 
