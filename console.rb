@@ -7,7 +7,6 @@ require_relative("models/budget.rb")
 
 
 
-require ("pry")
 
 Transaction.delete_all()
 Tag.delete_all()
@@ -83,8 +82,3 @@ transaction3 = Transaction.new({
   "amount" => 100
   });
 transaction3.save()
-
-
-
-binding.pry
-nil

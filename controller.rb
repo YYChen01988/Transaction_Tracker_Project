@@ -1,6 +1,5 @@
 require( 'sinatra' )
-require( 'sinatra/contrib/all' ) if development ?
-require( 'pry-byebug' )
+require( 'sinatra/contrib/all' ) if development?
 require('sinatra/flash')
 
 require_relative ( './models/transaction.rb')
