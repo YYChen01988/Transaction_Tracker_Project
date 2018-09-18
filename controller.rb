@@ -1,5 +1,5 @@
 require( 'sinatra' )
-# require( 'sinatra/contrib/all' ) if development?
+require( 'sinatra/contrib/all' ) if development?
 
 require_relative ( './models/transaction.rb')
 require_relative ( './models/merchant.rb')
