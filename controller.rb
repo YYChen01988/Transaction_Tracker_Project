@@ -86,9 +86,9 @@ end
 
 #Delete alert
 get '/merchants/:id/delete' do
-  # flash[:notice] = "Your related transactions are removed!"
   redirect '/merchants'
 end
+
 #Delete Merchant
 post '/merchants/:id/delete' do
   @merchant = Merchant.find_by_id(params[:id])
