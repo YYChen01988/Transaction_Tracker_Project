@@ -86,7 +86,7 @@ end
 
 #Delete alert
 get '/merchants/:id/delete' do
-  flash[:notice] = "Your related transactions are removed!"
+  # flash[:notice] = "Your related transactions are removed!"
   redirect '/merchants'
 end
 #Delete Merchant
