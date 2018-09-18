@@ -9,6 +9,10 @@ require_relative ( './models/budget.rb')
 enable :sessions
 # also_reload ( './models/*')
 
+get '/' do
+  redirect '/transactions'
+end
+
 get '/analytics' do
   @transactions = Transaction.all()
   @tags = Tag.all()
