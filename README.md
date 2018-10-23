@@ -1,5 +1,5 @@
 # Transaction_Tracker_Project
-# Project - Web Programming with Ruby
+### Project - Web Programming with Ruby
 
 Over the next week you will build an app to consolidate and expand on everything you have learned:
 
