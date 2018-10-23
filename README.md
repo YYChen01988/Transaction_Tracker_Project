@@ -33,7 +33,7 @@ These briefs detail what is expected of you, including an MVP. Note that the MVP
 
 Talk through your ideas with an instructor during the planning process, and before you begin coding.
 
-### Spending Tracker
+### Transaction Tracker
 
 Build an app that allows a user to track their spending.
 
