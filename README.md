@@ -21,7 +21,6 @@ It must **NOT** use:
 
 * Any Object Relational Mapper (e.g. ActiveRecord)
 * JavaScript. At all. Don't even think about it.
-* Any pre-built CSS libraries, such as Bootstrap.
 * Authentication. Assume that the user already has secure access to the app.
 
 All of these will be covered later in the course. Do not make any attempt to use them this week, even if you've used them before.
